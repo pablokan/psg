@@ -8,15 +8,21 @@ layout = [  [sg.Text('Input only floating point numbers')],
 
 window = sg.Window('Floating point input validation', layout)
 
+def valid_input(val):
+    try:
+        float(val)
+        return True
+    except ValueError:
+        return False
+
 while True:
     event, values = window.read()
     if event in (sg.WIN_CLOSED, 'Quit'):
         break
-    try:
-        in_as_float = float(values['-IN-'])
+    if valid_input(values['-IN-']):
         window['-OUT-'].update(values['-IN-'])
         window['Quit'].SetFocus()
-    except:
+    else:
         window['-OUT-'].update('Debe ingresar un real')
         window['-IN-'].SetFocus()
 window.close()
