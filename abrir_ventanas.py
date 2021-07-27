@@ -3,11 +3,8 @@ import PySimpleGUI as sg
 def layout(): # Define la interfaz grafica
     # Ejemplo de Pantalla
     lista = [
-        [sg.Text('Nombre: ', size=(10, 1)), sg.Input(key='nombre')], 
-        [sg.Text('Edad: ', size=(10, 1)), sg.Input(key='edad')], 
-        [sg.Button('Ok', bind_return_key=True)]        
+        [sg.Button('Abrir otra ventana', key='abrir', bind_return_key=True)]        
         ]
-    lista.append([sg.Button('Ok', bind_return_key=True)])    
     return lista
 
 def main(window):
@@ -15,8 +12,12 @@ def main(window):
         event, values = window.read()
         if event in (sg.WIN_CLOSED, 'Quit'): break
         print(event, values)
-        
+        if event == 'abrir':
+            sg.Popup('Ventana abierta')
+            otraV = sg.Window("Other Window", [[sg.Text("Cualquiera mente")]])
+            otraV.read()
+            
 if __name__ == '__main__':
-    w = sg.Window('Title', layout(), location=(2600,330),resizable=True)
+    w = sg.Window('Title', layout(), location=(2600,330))
     main(w)
     w.close()
