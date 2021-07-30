@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
 w = sg.Window('Title', [[sg.Button('Click me')]])
-w.read()
+t = w.read() # returns a tuple of (event: str, values: dict)
 w.close()
+print(t)

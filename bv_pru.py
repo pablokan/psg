@@ -12,7 +12,7 @@ def layout(): # Define la interfaz grafica
     lista.append([sg.Text('', key='salida', size=(30, 1))])
     return lista
 
-def main(window):
+def main():
     def validate_input(values): # Define la validacion de los datos ingresados
         vD = {'entero': int, 'real': float}
         for k, v in values.items():
@@ -33,13 +33,14 @@ def main(window):
         s = f'El doble de la edad es {int(values["entero_edad"])*2}'
         window['salida'].update(s)
 
+    window = sg.Window('Title', layout(), location=(2600,330),resizable=True)
     while True:
         event, values = window.read()
         if event in (sg.WIN_CLOSED, 'Quit'): break
         if validate_input(values):
             valid_main()
+    window.close()
 
 if __name__ == '__main__':
-    w = sg.Window('Title', layout(), location=(2600,330),resizable=True)
-    main(w)
-    w.close()
+    main()
+    
