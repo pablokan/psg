@@ -7,7 +7,7 @@ def layout():  # Define la interfaz grafica
         [sg.Text("Nombre: ", size=(10, 1)), sg.Input(key="nombre")],
         [sg.Text("Vehículo: ", size=(10, 1)), sg.Input(key="vehículo")],
     ]
-    lista.append([sg.Button("Más vehículos?")])
+    lista.append([sg.Button("Click aquí para agregar más vehículos")])
     return lista
 
 
@@ -18,7 +18,7 @@ def main(window):
         if event in (sg.WIN_CLOSED, "Quit"):
             break
         print(event, values)
-        if event == "Más vehículos?":
+        if event == "Click aquí para agregar más vehículos":
             c += 1
             window.extend_layout(
                 window,
@@ -32,6 +32,6 @@ def main(window):
 
 
 if __name__ == "__main__":
-    w = sg.Window("Title", layout(), resizable=True)
+    w = sg.Window("Ventana expandible", layout(), resizable=True)
     main(w)
     w.close()
