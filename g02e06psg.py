@@ -55,8 +55,8 @@ def main(window):
 
     def action2(window, values):
         lista = [int(x) for x in values.values()]
-        promedio = f"El promedio es {sum(lista) / len(lista)}"
-        window["msg"].update(str(promedio))
+        promedio = f"El promedio es {(sum(lista) / len(lista)):.2f}"
+        window["msg"].update(promedio)
 
     def action1(window, values):
         window.close()
