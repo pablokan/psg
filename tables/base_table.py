@@ -9,6 +9,8 @@ cabecera = next(reader)
 data = list(reader)
 archivo.close()
 
-w = sg.Window("Título", [[sg.Table(values=data, headings=cabecera)]])
+filas = [[sg.Table(values=data, headings=cabecera)]]
+
+w = sg.Window("Título", filas)
 w.read()
 w.close()
