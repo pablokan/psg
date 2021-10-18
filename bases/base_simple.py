@@ -6,7 +6,6 @@ def layout():  # Define la interfaz grafica
     lista = [
         [sg.Text("Nombre: ", size=(10, 1)), sg.Input(key="nombre")],
         [sg.Text("Edad: ", size=(10, 1)), sg.Input(key="edad")],
-        [sg.Button("Ok", bind_return_key=True)],
     ]
     lista.append([sg.Button("Ok", bind_return_key=True)])
     return lista
