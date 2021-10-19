@@ -5,8 +5,8 @@ nombreArchivo = sg.popup_get_file("Seleccione el archivo")
 
 archivo = open(nombreArchivo, "r")
 reader = csv.reader(archivo)
-cabecera = next(reader)
 data = list(reader)
+cabecera = data.pop(0)
 archivo.close()
 print(data)
 filas = [
